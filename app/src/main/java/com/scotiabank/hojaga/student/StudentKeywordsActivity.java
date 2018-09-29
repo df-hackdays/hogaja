@@ -1,13 +1,16 @@
 package com.scotiabank.hojaga.student;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.scotiabank.hojaga.R;
 import com.scotiabank.hojaga.student.adapters.KeywordsAdapter;
@@ -26,7 +29,7 @@ public class StudentKeywordsActivity extends AppCompatActivity implements Adapte
     @BindView(R.id.grid_definitions)
     GridView grid_definitions;
     @BindView(R.id.btn_help)
-    Button btn_help;
+    FloatingActionButton btn_help;
 
     private KeywordsAdapter keywordsAdapter;
     private ArrayList<ModulesInfo> definitionsList = new ArrayList<>();
@@ -38,11 +41,12 @@ public class StudentKeywordsActivity extends AppCompatActivity implements Adapte
         ButterKnife.bind(this);
 
         setModules();
+        grid_definitions.setOnItemClickListener(this);
     }
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
+        showDefinition();
     }
 
     private void setModules() {
@@ -61,6 +65,19 @@ public class StudentKeywordsActivity extends AppCompatActivity implements Adapte
 
     @OnClick(R.id.btn_help)
     void OnHelpClick() {
-        startActivity(new Intent(StudentKeywordsActivity.this, StudentKeywordsActivity.class));
+        startActivity(new Intent(StudentKeywordsActivity.this, StudentFeedbacActivity.class));
+    }
+
+    void showDefinition(){
+        Dialog dialog = new Dialog(this);
+        dialog.setContentView(R.layout.layout_definition);
+        dialog.setTitle("Title...");
+
+        // set the custom dialog components - text, image and button
+        TextView text = (TextView) dialog.findViewById(R.id.txt_title);
+        text.setText("Android custom dialog example!");
+
+
+        dialog.show();
     }
 }

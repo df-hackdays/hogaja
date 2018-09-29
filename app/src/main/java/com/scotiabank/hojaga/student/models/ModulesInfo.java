@@ -12,6 +12,8 @@ import java.util.Map;
 public class ModulesInfo {
 
     private String title;
+   // private String keywords[];
+    private String desc;
     private String id;
 //    private String[] keywords;
 
@@ -25,12 +27,28 @@ public class ModulesInfo {
         this.id = id;
     }
 
+    /*public String[] getKeywords() {
+        return keywords;
+    }
+
+    public void setKeywords(String[] keywords) {
+        this.keywords = keywords;
+    }*/
+
     public String getTitle() {
         return title;
     }
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public String getDesc() {
+        return desc;
+    }
+
+    public void setDesc(String desc) {
+        this.desc = desc;
     }
 
     public Keywords[] getKeywords() {

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="20dp">
+
+    <TextView
+        android:id="@+id/txt_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Student Number"
+        android:layout_margin="20dp"
+        />
+
+    <ImageView
+        android:id="@+id/img_smiley"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/txt_title"
+        android:layout_marginTop="60dp"
+        android:src="@drawable/common_google_signin_btn_icon_dark"
+        android:scaleType="fitXY"/>
+
+    <com.warkiz.widget.IndicatorSeekBar
+        android:id="@+id/slider"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/img_smiley"
+        android:layout_marginTop="20dp"
+        app:isb_progress="0"
+        app:isb_show_indicator="none"
+        app:isb_show_tick_marks_type="divider"
+        app:isb_ticks_count="4" />
+
+
+   <Button
+        android:id="@+id/btn_next"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Next"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="20dp"/>
+
+
+</RelativeLayout>

@@ -3,4 +3,29 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+
+    <color name="keyword_blue">#4aacee</color>
+
+    <color name="funky_blue_start">#44cfff</color>
+    <color name="funky_blue_end">#51d7f4</color>
+    <color name="funky_orange_start">#ffa58f</color>
+    <color name="funky_orange_end">#ffbb77</color>
+    <color name="funky_purple_start">#ab90f3</color>
+    <color name="funky_purple_end">#aebff4</color>
+    <color name="funky_green_start">#71d496</color>
+    <color name="funky_green_end">#a8e690</color>
+    <color name="funky_pink_start">#ff5187</color>
+    <color name="funky_pink_end">#ff4b7f</color>
+    <color name="funky_yellow_start">#fee438</color>
+    <color name="funky_yellow_end">#ffcf46</color>
+
+    <color name="background_start">#12c2e9</color>
+    <color name="background_middle">#c471ed</color>
+    <color name="background_end">#f64f59</color>
+
+
+
 </resources>

@@ -2,6 +2,7 @@ package com.scotiabank.hojaga.student;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -37,7 +38,7 @@ public class StudentModulesActivity extends AppCompatActivity implements Adapter
     @BindView(R.id.list_modules)
     ListView list_modules;
     @BindView(R.id.btn_help)
-    Button btn_help;
+    FloatingActionButton btn_help;
 
     private ModulesAdapter modulesAdapter;
     private ArrayList<ModulesInfo> modulesList = new ArrayList<>();
@@ -61,6 +62,9 @@ public class StudentModulesActivity extends AppCompatActivity implements Adapter
 
     private void setModules() {
 
+
+
+
         Log.d("TAG","modules; "+modulesArray.length);
         for(ModulesInfo modulesInfo1 : modulesArray){
             modulesList.add(modulesInfo1);
@@ -72,7 +76,7 @@ public class StudentModulesActivity extends AppCompatActivity implements Adapter
     @OnClick(R.id.btn_help)
     void OnHelpClick() {
         startActivity(new Intent(StudentModulesActivity.this, StudentModulesActivity.class));
-        readModuleFromFirebase();
+    //    readModuleFromFirebase();
     }
 
     void readModuleFromFirebase() {
