@@ -159,9 +159,9 @@ public class KeywordsCheckAdapter extends BaseAdapter{
                     break;
             }
         if(keywordsList.get(i).isSelected()) {
-            img_check.setImageDrawable(context.getDrawable(android.R.drawable.ic_menu_close_clear_cancel));
+            img_check.setImageDrawable(context.getDrawable(R.drawable.ic_icon_remove));
         }else {
-            img_check.setImageDrawable(context.getDrawable(android.R.drawable.ic_menu_add));
+            img_check.setImageDrawable(context.getDrawable(R.drawable.ic_icon_add));
         }
         return view;
     }

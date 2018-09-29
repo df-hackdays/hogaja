@@ -2,6 +2,7 @@ package com.scotiabank.hojaga.student;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -9,6 +10,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -39,9 +41,10 @@ public class StudentModulesActivity extends AppCompatActivity implements Adapter
     @BindView(R.id.list_modules)
     ListView list_modules;
     @BindView(R.id.btn_help)
-    FloatingActionButton btn_help;
+    ImageView btn_help;
     @BindView(R.id.layout_help)
     RelativeLayout layout_help;
+
 
     private ModulesAdapter modulesAdapter;
     private ArrayList<ModulesInfo> modulesList = new ArrayList<>();
@@ -75,7 +78,16 @@ public class StudentModulesActivity extends AppCompatActivity implements Adapter
 
     @OnClick(R.id.btn_help)
     void OnHelpClick() {
-        startActivity(new Intent(StudentModulesActivity.this, StudentModulesActivity.class));
+        btn_help.setVisibility(View.GONE);
+        layout_help.setVisibility(View.VISIBLE);
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                layout_help.setVisibility(View.GONE);
+                btn_help.setVisibility(View.VISIBLE);
+            }
+        }, 30000);
     //    readModuleFromFirebase();
     }
 

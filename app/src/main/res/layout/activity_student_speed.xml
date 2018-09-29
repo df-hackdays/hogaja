@@ -19,13 +19,14 @@
 
     <ImageView
         android:id="@+id/img_smiley"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+
         android:layout_centerHorizontal="true"
         android:layout_below="@id/txt_title"
         android:layout_marginTop="80dp"
-        android:src="@drawable/common_google_signin_btn_icon_dark"
-        android:scaleType="fitXY"/>
+        android:src="@drawable/ic_speed_slow"
+        android:scaleType="fitCenter"/>
 
 
     <TextView
@@ -50,7 +51,9 @@
         app:isb_track_background_color="@color/keyword_blue"
         app:isb_show_indicator="none"
         app:isb_show_tick_marks_type="divider"
-        app:isb_ticks_count="3" />
+        app:isb_ticks_count="3"
+        app:isb_thumb_size="100dp"
+        app:isb_thumb_drawable="@drawable/thumb_big"/>
 
 
     <Button

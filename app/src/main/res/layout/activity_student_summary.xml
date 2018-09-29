@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="20dp">
+    android:layout_margin="20dp"
+    android:background="@drawable/ic_confetti">
 
     <TextView
         android:id="@+id/txt_title"
@@ -31,13 +32,13 @@
 
     <ImageView
         android:id="@+id/img_pear"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         android:layout_centerHorizontal="true"
         android:layout_below="@id/txt_desc"
         android:layout_marginTop="100dp"
-        android:src="@drawable/common_google_signin_btn_icon_dark"
-        android:scaleType="fitXY"/>
+        android:src="@drawable/ic_pear"
+        android:scaleType="fitCenter"/>
     <Button
         android:id="@+id/btn_back_to_lessons"
         android:layout_width="match_parent"

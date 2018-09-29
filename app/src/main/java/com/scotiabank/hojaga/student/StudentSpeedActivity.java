@@ -48,15 +48,15 @@ public class StudentSpeedActivity extends AppCompatActivity {
                 Log.d("TAG","SEEK: "+seekParams.progress);
                 if(seekParams.progress == 0) {
                     txt_smiley_text.setText("Toooo slowwwww");
-                    img_smiley.setImageDrawable(getDrawable(R.drawable.common_google_signin_btn_icon_dark));
+                    img_smiley.setImageDrawable(getDrawable(R.drawable.ic_speed_slow));
                 }
                 else  if(seekParams.progress == 50) {
                     txt_smiley_text.setText("Perfect!");
-                    img_smiley.setImageDrawable(getDrawable(R.drawable.common_google_signin_btn_icon_dark));
+                    img_smiley.setImageDrawable(getDrawable(R.drawable.ic_speed_perfect));
                 }
                 else if(seekParams.progress == 100) {
                     txt_smiley_text.setText("Faasssttttt!!!");
-                    img_smiley.setImageDrawable(getDrawable(R.drawable.common_google_signin_btn_icon_dark));
+                    img_smiley.setImageDrawable(getDrawable(R.drawable.ic_speed_fast));
                 }
             }
 
@@ -75,7 +75,7 @@ public class StudentSpeedActivity extends AppCompatActivity {
 
     @OnClick(R.id.btn_submit)
     void OnSubmitClick() {
-        startActivity(new Intent(StudentSpeedActivity.this, StudentSummaryActivity.class));
+        startActivity(new Intent(StudentSpeedActivity.this, StudentKeywordsCheckActivity.class));
     }
 
 }

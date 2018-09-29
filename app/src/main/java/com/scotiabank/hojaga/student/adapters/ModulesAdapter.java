@@ -2,6 +2,7 @@ package com.scotiabank.hojaga.student.adapters;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -73,7 +74,11 @@ public class ModulesAdapter extends ArrayAdapter<ModulesInfo> {
             result = convertView;
         }
 
-        viewHolder.title.setText(modules.get(position).getTitle().replaceAll("_"," "));
+
+
+        String title = modules.get(position).getTitle();
+        StringBuffer s = new StringBuffer(title);
+        viewHolder.title.setText(title.replaceAll("0"," "));
         viewHolder.desc.setText(modules.get(position).getTitle());
         viewHolder.background.setBackground(background_drawables[position]);
 

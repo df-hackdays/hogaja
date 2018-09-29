@@ -14,7 +14,7 @@
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
         android:layout_marginRight="5dp"
-        android:src="@android:drawable/ic_menu_add"/>
+        android:src="@drawable/ic_icon_add"/>
 
     <TextView
         android:layout_centerInParent="true"

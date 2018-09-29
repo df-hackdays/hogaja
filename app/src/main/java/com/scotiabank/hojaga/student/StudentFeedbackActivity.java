@@ -48,23 +48,17 @@ public class StudentFeedbackActivity extends AppCompatActivity {
                 Log.d("TAG","SEEK: "+seekParams.progress);
                 if(seekParams.progress == 0) {
                     txt_smiley_text.setText("Not at all!");
-                    img_smiley.setImageDrawable(getDrawable(R.drawable.common_google_signin_btn_icon_dark));
+                    img_smiley.setImageDrawable(getDrawable(R.drawable.ic_understood_no));
                 }
-                else if(seekParams.progress == 25) {
-                    txt_smiley_text.setText("Meh!");
-                    img_smiley.setImageDrawable(getDrawable(R.drawable.common_google_signin_btn_icon_dark));
-                }
+
                 else  if(seekParams.progress == 50) {
                     txt_smiley_text.setText("Okayish!");
-                    img_smiley.setImageDrawable(getDrawable(R.drawable.common_google_signin_btn_icon_dark));
+                    img_smiley.setImageDrawable(getDrawable(R.drawable.ic_understood_middle));
                 }
-                else if(seekParams.progress == 75) {
-                    txt_smiley_text.setText("Yep!");
-                    img_smiley.setImageDrawable(getDrawable(R.drawable.common_google_signin_btn_icon_dark));
-                }
+
                 else if(seekParams.progress == 100) {
                     txt_smiley_text.setText("Hell Yeah!");
-                    img_smiley.setImageDrawable(getDrawable(R.drawable.common_google_signin_btn_icon_dark));
+                    img_smiley.setImageDrawable(getDrawable(R.drawable.ic_understood_pro_big));
                 }
             }
 

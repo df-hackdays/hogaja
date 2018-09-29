@@ -44,7 +44,7 @@ public class StudentKeywordsActivity extends AppCompatActivity implements Adapte
     @BindView(R.id.grid_definitions)
     GridView grid_definitions;
     @BindView(R.id.btn_help)
-    FloatingActionButton btn_help;
+    ImageView btn_help;
     @BindView(R.id.layout_help)
     RelativeLayout layout_help;
 
