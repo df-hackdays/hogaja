@@ -21,6 +21,7 @@ import com.scotiabank.hojaga.student.adapters.ModulesAdapter;
 import com.scotiabank.hojaga.student.models.ModulesInfo;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import butterknife.BindView;
@@ -37,6 +38,7 @@ public class StudentModulesActivity extends AppCompatActivity implements Adapter
 
     private ModulesAdapter modulesAdapter;
     private ArrayList<ModulesInfo> modulesList = new ArrayList<>();
+    ModulesInfo[] founderArray;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,19 +46,20 @@ public class StudentModulesActivity extends AppCompatActivity implements Adapter
         setContentView(R.layout.activity_student_modules);
         ButterKnife.bind(this);
         readModuleFromFirebase();
-        setModules();
+        list_modules.setOnItemClickListener(this);
     }
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
+        startActivity(new Intent(StudentModulesActivity.this, StudentKeywordsActivity.class));
     }
 
     private void setModules() {
-        ModulesInfo modulesInfo = new ModulesInfo();
-        modulesInfo.setTitle("Title");
-        modulesList.add(modulesInfo);
 
+        Log.d("TAG","modules; "+founderArray.length);
+        for(ModulesInfo modulesInfo1 : founderArray){
+            modulesList.add(modulesInfo1);
+        }
         modulesAdapter = new ModulesAdapter(modulesList, this);
         list_modules.setAdapter(modulesAdapter);
     }
@@ -75,11 +78,12 @@ public class StudentModulesActivity extends AppCompatActivity implements Adapter
                 Object resultObject =  dataSnapshot.getValue();
                 String stringObject = resultObject.toString();
                 Gson gson = new Gson();
-                ModulesInfo[] founderArray = gson.fromJson(stringObject, ModulesInfo[].class);
+                founderArray = gson.fromJson(stringObject, ModulesInfo[].class);
 
                 for (ModulesInfo module: founderArray) {
                     Log.d("modules", "Module is: " + module.getTitle());
                 }
+                setModules();
             }
 
             @Override
