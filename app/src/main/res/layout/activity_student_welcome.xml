@@ -25,13 +25,13 @@
         android:layout_marginRight="20dp"
         android:padding="20dp"
         android:id="@+id/layout_background"
-        android:background="@drawable/modules_blue_row">
+        android:background="@drawable/modules_purple_row">
 
         <TextView
             android:id="@+id/txt_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="HTML &amp; CSS for Beginners: Learn to Build a One Page Website From scratch"
+            android:text="An Introduction to Android for Beginners"
             android:textSize="18sp"
             android:textStyle="bold"
             android:layout_marginRight="90dp"
@@ -53,7 +53,7 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_alignParentRight="true"
-            android:src="@color/common_google_signin_btn_text_dark_default"/>
+            android:src="@drawable/today"/>
 
     </RelativeLayout>
 
@@ -65,7 +65,7 @@
         android:layout_marginRight="20dp"
         android:padding="20dp"
         android:id="@+id/layout_background2"
-        android:background="@drawable/modules_purple_row">
+        android:background="@drawable/modules_blue_row">
 
         <TextView
             android:id="@+id/txt_title2"
@@ -93,7 +93,7 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_alignParentRight="true"
-            android:src="@color/common_google_signin_btn_text_dark_default"/>
+            android:src="@drawable/date"/>
 
     </RelativeLayout>
 

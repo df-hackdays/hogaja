@@ -11,18 +11,18 @@
     <color name="keyword_blue">#4aacee</color>
     <color name="keyword_grey">#9b9b9b</color>
 
-    <color name="funky_blue_start">#44cfff</color>
-    <color name="funky_blue_end">#51d7f4</color>
+    <color name="funky_blue_start">#0052d4</color>
+    <color name="funky_blue_end">#6fb1fc</color>
     <color name="funky_orange_start">#ffa58f</color>
     <color name="funky_orange_end">#ffbb77</color>
-    <color name="funky_purple_start">#ab90f3</color>
-    <color name="funky_purple_end">#aebff4</color>
-    <color name="funky_green_start">#71d496</color>
-    <color name="funky_green_end">#a8e690</color>
-    <color name="funky_pink_start">#ff5187</color>
-    <color name="funky_pink_end">#ff4b7f</color>
-    <color name="funky_yellow_start">#fee438</color>
-    <color name="funky_yellow_end">#ffcf46</color>
+    <color name="funky_purple_start">#934BE0</color>
+    <color name="funky_purple_end">#cfa4fd</color>
+    <color name="funky_green_start">#007da9</color>
+    <color name="funky_green_end">#6fd9fe</color>
+    <color name="funky_pink_start">#e60060</color>
+    <color name="funky_pink_end">#ff96c2</color>
+    <color name="funky_yellow_start">#d14600</color>
+    <color name="funky_yellow_end">#ffbb77</color>
 
     <color name="background_start">#12c2e9</color>
     <color name="background_middle">#c471ed</color>

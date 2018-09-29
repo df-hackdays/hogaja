@@ -10,6 +10,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.google.firebase.database.DataSnapshot;
@@ -39,6 +40,8 @@ public class StudentModulesActivity extends AppCompatActivity implements Adapter
     ListView list_modules;
     @BindView(R.id.btn_help)
     FloatingActionButton btn_help;
+    @BindView(R.id.layout_help)
+    RelativeLayout layout_help;
 
     private ModulesAdapter modulesAdapter;
     private ArrayList<ModulesInfo> modulesList = new ArrayList<>();

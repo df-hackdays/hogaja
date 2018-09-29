@@ -38,11 +38,10 @@ public class ModulesAdapter extends ArrayAdapter<ModulesInfo> {
         this.modules = modules;
         this.mContext = context;
         background_drawables[0] = mContext.getResources().getDrawable(R.drawable.modules_blue_row);
-        background_drawables[1] = mContext.getResources().getDrawable(R.drawable.modules_orange_row);
-        background_drawables[2] = mContext.getResources().getDrawable(R.drawable.modules_purple_row);
-        background_drawables[3] = mContext.getResources().getDrawable(R.drawable.modules_green_row);
-        background_drawables[4] = mContext.getResources().getDrawable(R.drawable.modules_pink_row);
-        background_drawables[5] = mContext.getResources().getDrawable(R.drawable.modules_yellow_row);
+        background_drawables[1] = mContext.getResources().getDrawable(R.drawable.modules_purple_row);
+        background_drawables[2] = mContext.getResources().getDrawable(R.drawable.modules_green_row);
+        background_drawables[3] = mContext.getResources().getDrawable(R.drawable.modules_pink_row);
+        background_drawables[4] = mContext.getResources().getDrawable(R.drawable.modules_yellow_row);
 
     }
 
@@ -74,7 +73,7 @@ public class ModulesAdapter extends ArrayAdapter<ModulesInfo> {
             result = convertView;
         }
 
-        viewHolder.title.setText(modules.get(position).getTitle());
+        viewHolder.title.setText(modules.get(position).getTitle().replaceAll("_"," "));
         viewHolder.desc.setText(modules.get(position).getTitle());
         viewHolder.background.setBackground(background_drawables[position]);
 
