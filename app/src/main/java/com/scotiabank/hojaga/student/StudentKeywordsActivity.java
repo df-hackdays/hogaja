@@ -1,7 +1,10 @@
 package com.scotiabank.hojaga.student;
 
 import android.app.Dialog;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
@@ -40,6 +43,7 @@ public class StudentKeywordsActivity extends AppCompatActivity implements Adapte
     private KeywordsAdapter keywordsAdapter;
     private ArrayList<ModulesInfo> modulesList = new ArrayList<>();
     private ArrayList<Keywords> keywordsArrayList = new ArrayList<>();
+    private BroadcastReceiver pollBroadcastReceiver;
     ModulesInfo[] modulesArray;
 
     private int selectedModule = 0;
@@ -52,6 +56,22 @@ public class StudentKeywordsActivity extends AppCompatActivity implements Adapte
 
         readModuleFromFirebase();
         grid_definitions.setOnItemClickListener(this);
+
+        // poll activity broadcast receiver
+        pollBroadcastReceiver = new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+                Log.d("poll", "Received poll intent");
+                // launch activity to begin student poll process
+            }
+        };
+        registerReceiver(pollBroadcastReceiver, new IntentFilter(Constants.POLL_BROADCAST));
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        unregisterReceiver(pollBroadcastReceiver);
     }
 
     @Override
