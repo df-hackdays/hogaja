@@ -50,11 +50,7 @@ public class StudentSpeedActivity extends AppCompatActivity {
                     txt_smiley_text.setText("Toooo slowwwww");
                     img_smiley.setImageDrawable(getDrawable(R.drawable.common_google_signin_btn_icon_dark));
                 }
-                else if(seekParams.progress == 33) {
-                    txt_smiley_text.setText("Could have been a bit fast!");
-                    img_smiley.setImageDrawable(getDrawable(R.drawable.common_google_signin_btn_icon_dark));
-                }
-                else  if(seekParams.progress == 67) {
+                else  if(seekParams.progress == 50) {
                     txt_smiley_text.setText("Perfect!");
                     img_smiley.setImageDrawable(getDrawable(R.drawable.common_google_signin_btn_icon_dark));
                 }

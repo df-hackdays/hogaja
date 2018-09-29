@@ -50,7 +50,7 @@
         app:isb_track_background_color="@color/keyword_blue"
         app:isb_show_indicator="none"
         app:isb_show_tick_marks_type="divider"
-        app:isb_ticks_count="4" />
+        app:isb_ticks_count="3" />
 
 
     <Button

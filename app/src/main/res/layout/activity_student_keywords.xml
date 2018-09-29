@@ -46,8 +46,38 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
+        android:visibility="gone"
         android:layout_alignParentRight="true"
         android:layout_margin="20dp"
         android:src="@android:drawable/ic_dialog_email" />
+    
+    <RelativeLayout
+        android:id="@+id/layout_help"
+        android:layout_width="220dp"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_margin="20dp"
+        android:background="@drawable/welcome_section">
 
+        <ImageView
+            android:id="@+id/img_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/ic_pizza"/>
+
+        <TextView
+            android:id="@+id/txt_help"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:textStyle="bold"
+            android:layout_toLeftOf="@id/img_icon"
+            android:layout_centerVertical="true"
+            android:textSize="16sp"
+            android:text="Help is on the way!" />
+
+    </RelativeLayout>
 </RelativeLayout>

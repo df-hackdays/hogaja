@@ -5,13 +5,19 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.GridView;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.google.firebase.database.DataSnapshot;
@@ -39,6 +45,8 @@ public class StudentKeywordsActivity extends AppCompatActivity implements Adapte
     GridView grid_definitions;
     @BindView(R.id.btn_help)
     FloatingActionButton btn_help;
+    @BindView(R.id.layout_help)
+    RelativeLayout layout_help;
 
     private KeywordsAdapter keywordsAdapter;
     private ArrayList<ModulesInfo> modulesList = new ArrayList<>();
@@ -62,7 +70,7 @@ public class StudentKeywordsActivity extends AppCompatActivity implements Adapte
             @Override
             public void onReceive(Context context, Intent intent) {
                 Log.d("poll", "Received poll intent");
-                // launch activity to begin student poll process
+                showNotification();
             }
         };
         registerReceiver(pollBroadcastReceiver, new IntentFilter(Constants.POLL_BROADCAST));
@@ -76,7 +84,7 @@ public class StudentKeywordsActivity extends AppCompatActivity implements Adapte
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        showDefinition();
+        showDefinition(position);
     }
 
     private void setKeywords() {
@@ -94,18 +102,52 @@ public class StudentKeywordsActivity extends AppCompatActivity implements Adapte
 
     @OnClick(R.id.btn_help)
     void OnHelpClick() {
-        startActivity(new Intent(StudentKeywordsActivity.this, StudentFeedbackActivity.class));
+        btn_help.setVisibility(View.GONE);
+        layout_help.setVisibility(View.VISIBLE);
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                layout_help.setVisibility(View.GONE);
+                btn_help.setVisibility(View.VISIBLE);
+            }
+        }, 30000);
     }
 
-    void showDefinition(){
-        Dialog dialog = new Dialog(this);
+    void showDefinition(int position){
+        final Dialog dialog = new Dialog(this);
         dialog.setContentView(R.layout.layout_definition);
-        dialog.setTitle("Title...");
 
         // set the custom dialog components - text, image and button
         TextView text = (TextView) dialog.findViewById(R.id.txt_title);
-        text.setText("Android custom dialog example!");
+        text.setText(keywordsArrayList.get(position).getName());
+        TextView text2 = (TextView) dialog.findViewById(R.id.txt_desc);
+        text2.setText(keywordsArrayList.get(position).getDefinition());
 
+        ImageView img_clear = dialog.findViewById(R.id.img_clear);
+        img_clear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+
+        dialog.show();
+    }
+
+    void showNotification(){
+        final Dialog dialog = new Dialog(this);
+        dialog.setContentView(R.layout.layout_popup);
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        dialog.setCancelable(false);
+
+        TextView btn_lets_do_it = dialog.findViewById(R.id.btn_lets_do_it);
+        btn_lets_do_it.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(StudentKeywordsActivity.this, StudentFeedbackActivity.class));
+            }
+        });
 
         dialog.show();
     }
