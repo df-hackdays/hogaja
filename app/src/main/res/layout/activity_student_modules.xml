@@ -18,8 +18,17 @@
         android:layout_height="match_parent"
         android:layout_below="@+id/txt_title"
         android:dividerHeight="10dp"
+        android:layout_above="@id/btn_help"
         android:layout_margin="20dp"
         android:divider="@null"/>
 
+    <Button
+        android:id="@+id/btn_help"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Help"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="20dp"/>
 
 </RelativeLayout>
