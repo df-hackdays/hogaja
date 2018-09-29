@@ -6,8 +6,10 @@
 
     <color name="white">#FFFFFF</color>
     <color name="black">#000000</color>
+    <color name="background_grey">#F8F8F8</color>
 
     <color name="keyword_blue">#4aacee</color>
+    <color name="keyword_grey">#9b9b9b</color>
 
     <color name="funky_blue_start">#44cfff</color>
     <color name="funky_blue_end">#51d7f4</color>

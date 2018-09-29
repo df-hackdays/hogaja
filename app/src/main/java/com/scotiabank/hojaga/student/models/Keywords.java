@@ -5,6 +5,7 @@ public class Keywords {
     private String name;
     private String id;
     private String definition;
+    private boolean isSelected;
 
     public String getName() {
         return name;
@@ -28,5 +29,13 @@ public class Keywords {
 
     public void setDefinition(String definition) {
         this.definition = definition;
+    }
+
+    public boolean isSelected() {
+        return isSelected;
+    }
+
+    public void setSelected(boolean selected) {
+        isSelected = selected;
     }
 }

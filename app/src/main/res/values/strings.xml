@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Hojaga</string>
+    <string name="welcome">Welcome to class, \nAnishka</string>
+    <string name="address">Scotiabank Digital Factory \n333 King Street East\nToronto, ON</string>
 </resources>

@@ -8,77 +8,48 @@
 
     <TextView
         android:id="@+id/txt_title"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Summary"
-        android:layout_margin="20dp"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:text="Super helpful stuff. Now let’s get you pear’d up!"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="80dp"
         />
 
-    <RelativeLayout
+    <TextView
+        android:id="@+id/txt_desc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:background="@android:color/background_light">
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/txt_title"
+        android:textSize="16sp"
+        android:text="A mentor will give you a helping hand shortly." />
 
-        <RelativeLayout
-            android:id="@+id/layout_class"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:gravity="center_vertical">
-
-            <TextView
-                android:id="@+id/txt_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="20dp"
-                android:text="Class/Workshop Name" />
-
-            <TextView
-                android:id="@+id/txt_name_value"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="20dp"
-                android:layout_toRightOf="@id/txt_name"
-                android:text="Android" />
-
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:id="@+id/layout_date"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/layout_class"
-            android:layout_margin="20dp"
-            android:gravity="center_vertical">
-
-            <TextView
-                android:id="@+id/txt_date"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="20dp"
-                android:text="Date/Range" />
-
-            <TextView
-                android:id="@+id/txt_date_value"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="20dp"
-                android:layout_toRightOf="@id/txt_date"
-                android:text="Today" />
-
-        </RelativeLayout>
-    </RelativeLayout>
-
-   <Button
-        android:id="@+id/btn_done"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Done"
+    <ImageView
+        android:id="@+id/img_pear"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/txt_desc"
+        android:layout_marginTop="100dp"
+        android:src="@drawable/common_google_signin_btn_icon_dark"
+        android:scaleType="fitXY"/>
+    <Button
+        android:id="@+id/btn_back_to_lessons"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="Back to Lessons"
+        android:textColor="@color/keyword_blue"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textAllCaps="false"
+        android:background="@drawable/welcome_section"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_margin="20dp"/>
-
-
 
 </RelativeLayout>

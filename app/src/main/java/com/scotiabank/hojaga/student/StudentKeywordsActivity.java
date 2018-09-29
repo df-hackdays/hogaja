@@ -5,18 +5,24 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.GridView;
-import android.widget.ListView;
 import android.widget.TextView;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.ValueEventListener;
+import com.google.gson.Gson;
+import com.google.gson.stream.JsonReader;
+import com.scotiabank.hojaga.FirebaseUtility;
 import com.scotiabank.hojaga.R;
 import com.scotiabank.hojaga.student.adapters.KeywordsAdapter;
-import com.scotiabank.hojaga.student.adapters.ModulesAdapter;
+import com.scotiabank.hojaga.student.models.Keywords;
 import com.scotiabank.hojaga.student.models.ModulesInfo;
 
+import java.io.StringReader;
 import java.util.ArrayList;
 
 import butterknife.BindView;
@@ -32,7 +38,11 @@ public class StudentKeywordsActivity extends AppCompatActivity implements Adapte
     FloatingActionButton btn_help;
 
     private KeywordsAdapter keywordsAdapter;
-    private ArrayList<ModulesInfo> definitionsList = new ArrayList<>();
+    private ArrayList<ModulesInfo> modulesList = new ArrayList<>();
+    private ArrayList<Keywords> keywordsArrayList = new ArrayList<>();
+    ModulesInfo[] modulesArray;
+
+    private int selectedModule = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +50,7 @@ public class StudentKeywordsActivity extends AppCompatActivity implements Adapte
         setContentView(R.layout.activity_student_keywords);
         ButterKnife.bind(this);
 
-        setModules();
+        readModuleFromFirebase();
         grid_definitions.setOnItemClickListener(this);
     }
 
@@ -49,23 +59,22 @@ public class StudentKeywordsActivity extends AppCompatActivity implements Adapte
         showDefinition();
     }
 
-    private void setModules() {
-        ModulesInfo modulesInfo = new ModulesInfo();
-        modulesInfo.setTitle("Title");
-        definitionsList.add(modulesInfo);
-        definitionsList.add(modulesInfo);
-        definitionsList.add(modulesInfo);
-        definitionsList.add(modulesInfo);
-        definitionsList.add(modulesInfo);
-        definitionsList.add(modulesInfo);
+    private void setKeywords() {
+        for(ModulesInfo modulesInfo1 : modulesArray){
+            modulesList.add(modulesInfo1);
+        }
 
-        keywordsAdapter = new KeywordsAdapter( this, definitionsList);
+        Keywords[] keywordsArray = modulesList.get(selectedModule).getKeywords();
+        for(Keywords keywords : keywordsArray){
+            keywordsArrayList.add(keywords);
+        }
+        keywordsAdapter = new KeywordsAdapter( this, keywordsArrayList);
         grid_definitions.setAdapter(keywordsAdapter);
     }
 
     @OnClick(R.id.btn_help)
     void OnHelpClick() {
-        startActivity(new Intent(StudentKeywordsActivity.this, StudentFeedbacActivity.class));
+        startActivity(new Intent(StudentKeywordsActivity.this, StudentFeedbackActivity.class));
     }
 
     void showDefinition(){
@@ -79,5 +88,29 @@ public class StudentKeywordsActivity extends AppCompatActivity implements Adapte
 
 
         dialog.show();
+    }
+
+    void readModuleFromFirebase() {
+        // Read from the database
+        FirebaseUtility.getModulesReference().addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                Object resultObject = dataSnapshot.getValue();
+                String stringObject = resultObject.toString();
+                JsonReader jr = new JsonReader(new StringReader(stringObject.trim()));
+                jr.setLenient(true);
+                Gson gson = new Gson();
+                modulesArray = gson.fromJson(stringObject, ModulesInfo[].class);
+
+
+                setKeywords();
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+                // Failed to read value
+                Log.w("Test fail", "Failed to read value.", error.toException());
+            }
+        });
     }
 }

@@ -14,16 +14,26 @@
         </activity>
 
         <activity android:name=".student.StudentWelcomeActivity">
+
+        </activity>
+        <activity android:name=".student.StudentLandingActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".student.StudentLandingActivity" />
         <activity android:name=".student.StudentModulesActivity" />
         <activity android:name=".student.StudentKeywordsActivity" />
-        <activity android:name=".student.StudentFeedbacActivity" />
+        <activity android:name=".student.StudentFeedbackActivity" >
+
+        </activity>
+        <activity android:name=".student.StudentSpeedActivity" >
+
+        </activity>
+        <activity android:name=".student.StudentKeywordsCheckActivity" >
+
+        </activity>
         <activity android:name=".student.StudentSummaryActivity" />
 
         <service

@@ -5,25 +5,21 @@ import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.scotiabank.hojaga.R;
 import com.scotiabank.hojaga.student.models.Keywords;
-import com.scotiabank.hojaga.student.models.ModulesInfo;
 
 import java.util.ArrayList;
-import java.util.Random;
 
 /**
  * Created by gauravmalvankar on 2018-09-28.
  */
 
-public class KeywordsAdapter extends BaseAdapter{
+public class KeywordsCheckAdapter extends BaseAdapter{
 
     Context context;
     ArrayList<Keywords> keywordsList;
@@ -42,7 +38,7 @@ public class KeywordsAdapter extends BaseAdapter{
 
     int[] color_index;
 
-    public KeywordsAdapter(Context applicationContext, ArrayList<Keywords> keywordsList) {
+    public KeywordsCheckAdapter(Context applicationContext, ArrayList<Keywords> keywordsList) {
         this.context = applicationContext;
         this.keywordsList = keywordsList;
         inflter = (LayoutInflater.from(applicationContext));
@@ -81,14 +77,16 @@ public class KeywordsAdapter extends BaseAdapter{
     }
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
-        view = inflter.inflate(R.layout.tiles_cards, null); // inflate the layout
+        view = inflter.inflate(R.layout.tiles_cards_check, null); // inflate the layout
         TextView txt_title = (TextView) view.findViewById(R.id.txt_title); // get the reference of ImageView
         txt_title.setText(keywordsList.get(i).getName()); // set logo images
 
+        ImageView img_check = view.findViewById(R.id.img_check);
+
         RelativeLayout background = view.findViewById(R.id.background);
 
-        switch(COLOR){
-            case 0:
+            switch (COLOR) {
+                case 0:
                /* Random rand = new Random();
                 int x = rand.nextInt();
 
@@ -97,73 +95,74 @@ public class KeywordsAdapter extends BaseAdapter{
                 else
                     background.setBackground(orange_background[1]);*/
 
-                background.setBackground(orange_background[0]);
-                color_index[i] = 0;
-                if(i>0){
-                    if(counter<2){
-                        background.setBackground(blue_background[color_index[i-1]]);
-                        color_index[i] = color_index[i-1];
-                        counter++;
-                    }
-                    else{
-                        if(color_index[i-1] == 0){
-                            background.setBackground(blue_background[1]);
-                            color_index[i] = 1;
+                    background.setBackground(blue_background[0]);
+                    color_index[i] = 0;
+                    if (i > 0) {
+                        if (counter < 2) {
+                            background.setBackground(blue_background[color_index[i - 1]]);
+                            color_index[i] = color_index[i - 1];
+                            counter++;
+                        } else {
+                            if (color_index[i - 1] == 0) {
+                                background.setBackground(blue_background[1]);
+                                color_index[i] = 1;
+                            } else {
+                                background.setBackground(blue_background[0]);
+                                color_index[i] = 0;
+                            }
+                            counter = 1;
                         }
-                        else{
-                            background.setBackground(blue_background[0]);
-                            color_index[i] = 0;
-                        }
-                        counter=1;
+
                     }
 
-                }
 
+                    break;
 
+                case 1:
+                    if (i % 2 == 0)
+                        background.setBackground(orange_background[0]);
+                    else
+                        background.setBackground(orange_background[1]);
 
-                break;
+                    break;
 
-            case 1:
-                if(i%2 == 0)
-                    background.setBackground(orange_background[0]);
-                else
-                    background.setBackground(orange_background[1]);
+                case 2:
+                    if (i % 2 == 0)
+                        background.setBackground(purple_background[0]);
+                    else
+                        background.setBackground(purple_background[1]);
 
-                break;
+                    break;
 
-            case 2:
-                if(i%2 == 0)
-                    background.setBackground(purple_background[0]);
-                else
-                    background.setBackground(purple_background[1]);
+                case 3:
+                    if (i % 2 == 0)
+                        background.setBackground(green_background[0]);
+                    else
+                        background.setBackground(green_background[1]);
 
-                break;
+                    break;
 
-            case 3:
-                if(i%2 == 0)
-                    background.setBackground(green_background[0]);
-                else
-                    background.setBackground(green_background[1]);
+                case 4:
+                    if (i % 2 == 0)
+                        background.setBackground(pink_background[0]);
+                    else
+                        background.setBackground(pink_background[1]);
 
-                break;
+                    break;
 
-            case 4:
-                if(i%2 == 0)
-                    background.setBackground(pink_background[0]);
-                else
-                    background.setBackground(pink_background[1]);
+                case 5:
+                    if (i % 2 == 0)
+                        background.setBackground(yellow_background[0]);
+                    else
+                        background.setBackground(yellow_background[1]);
 
-                break;
-
-            case 5:
-                if(i%2 == 0)
-                    background.setBackground(yellow_background[0]);
-                else
-                    background.setBackground(yellow_background[1]);
-
-                break;
+                    break;
+            }
+        if(keywordsList.get(i).isSelected()) {
+            img_check.setImageDrawable(context.getDrawable(android.R.drawable.ic_menu_close_clear_cancel));
+        }else {
+            img_check.setImageDrawable(context.getDrawable(android.R.drawable.ic_menu_add));
         }
-
         return view;
     }
 }

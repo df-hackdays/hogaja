@@ -3,87 +3,98 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="20dp"
-    android:background="@drawable/welcome_background">
+    android:background="@color/background_grey">
 
     <TextView
-        android:id="@+id/txt_logo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:layout_centerHorizontal="true"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:textColor="@color/white"
-        android:text="Logo" />
-
-    <TextView
-        android:id="@+id/name"
-        android:layout_width="wrap_content"
+        android:id="@+id/txt_name"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
+        android:layout_marginLeft="40dp"
         android:layout_centerHorizontal="true"
-        android:textSize="20sp"
+        android:textSize="24sp"
         android:textStyle="bold"
-        android:textColor="@color/white"
-        android:layout_below="@id/txt_logo"
-        android:text="Logo" />
+        android:textColor="@color/black"
+        android:text="@string/welcome" />
 
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:background="@android:color/white">
+    <RelativeLayout android:layout_below="@id/txt_name"
+        android:layout_width="match_parent"
+        android:layout_height="240dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:padding="20dp"
+        android:id="@+id/layout_background"
+        android:background="@drawable/modules_blue_row">
 
-        <RelativeLayout
-            android:id="@+id/layout_class"
+        <TextView
+            android:id="@+id/txt_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:gravity="center_vertical">
+            android:text="HTML &amp; CSS for Beginners: Learn to Build a One Page Website From scratch"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginRight="90dp"
+            android:textColor="@color/white"/>
 
-            <TextView
-                android:id="@+id/txt_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="20dp"
-                android:text="Class/Workshop Name" />
-
-
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:id="@+id/layout_date"
-            android:layout_width="wrap_content"
+        <TextView
+            android:id="@+id/txt_desc"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/layout_class"
-            android:layout_margin="20dp"
-            android:gravity="center_vertical">
+            android:text="@string/address"
+            android:textSize="16sp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="10dp"
+            android:layout_marginRight="20dp"
+            android:textColor="@color/white"/>
 
-            <TextView
-                android:id="@+id/txt_date"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="20dp"
-                android:text="Date/Range" />
+        <ImageView
+            android:id="@+id/img_module"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentRight="true"
+            android:src="@color/common_google_signin_btn_text_dark_default"/>
 
-            <TextView
-                android:id="@+id/txt_date_value"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="20dp"
-                android:layout_toRightOf="@id/txt_date"
-                android:text="Today" />
-
-        </RelativeLayout>
     </RelativeLayout>
 
-    <Button
-        android:id="@+id/btn_next"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Next"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_margin="20dp"/>
+    <RelativeLayout android:layout_below="@id/layout_background"
+        android:layout_width="match_parent"
+        android:layout_height="240dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:padding="20dp"
+        android:id="@+id/layout_background2"
+        android:background="@drawable/modules_purple_row">
+
+        <TextView
+            android:id="@+id/txt_title2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="An Introduction to Ruby for Beginners"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginRight="90dp"
+            android:textColor="@color/white"/>
+
+        <TextView
+            android:id="@+id/txt_desc2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/address"
+            android:textSize="16sp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="10dp"
+            android:layout_marginRight="20dp"
+            android:textColor="@color/white"/>
+
+        <ImageView
+            android:id="@+id/img_module2"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentRight="true"
+            android:src="@color/common_google_signin_btn_text_dark_default"/>
+
+    </RelativeLayout>
 
 </RelativeLayout>

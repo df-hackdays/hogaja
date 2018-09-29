@@ -14,9 +14,7 @@ import butterknife.OnClick;
 
 public class StudentLandingActivity extends AppCompatActivity {
 
-    //Hello
-    @BindView(R.id.edit_student_id)
-    EditText edit_student_id;
+
     @BindView(R.id.btn_next)
     Button btn_next;
 
@@ -29,6 +27,6 @@ public class StudentLandingActivity extends AppCompatActivity {
 
     @OnClick(R.id.btn_next)
     void OnNextClick(){
-        startActivity(new Intent(StudentLandingActivity.this, StudentLandingActivity.class));
+        startActivity(new Intent(StudentLandingActivity.this, StudentWelcomeActivity.class));
     }
 }
