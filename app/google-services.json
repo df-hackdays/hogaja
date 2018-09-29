@@ -1,0 +1,86 @@
+{
+  "project_info": {
+    "project_number": "753949305180",
+    "firebase_url": "https://savnacdf-98f16.firebaseio.com",
+    "project_id": "savnacdf-98f16",
+    "storage_bucket": "savnacdf-98f16.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:753949305180:android:24b3bc401127a6bc",
+        "android_client_info": {
+          "package_name": "com.scotiabank.hojaga"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "753949305180-2o1oorvdv2jpmt00kdtskl4brfeeuiqv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.scotiabank.hojaga",
+            "certificate_hash": "5b9312dc9bc5ccf680954fa823c736a66c2ed750"
+          }
+        },
+        {
+          "client_id": "753949305180-50enghp4fb2bbo409duko2ns772f8unq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDMqQCoy57SeLEo4yRvvoieaVePR38pckw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "753949305180-50enghp4fb2bbo409duko2ns772f8unq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:753949305180:android:34c54f2c8269fc5b",
+        "android_client_info": {
+          "package_name": "com.scotiabank.savnac"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "753949305180-50enghp4fb2bbo409duko2ns772f8unq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDMqQCoy57SeLEo4yRvvoieaVePR38pckw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
