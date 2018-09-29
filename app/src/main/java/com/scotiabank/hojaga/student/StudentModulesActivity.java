@@ -15,11 +15,14 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
 import com.google.gson.Gson;
+import com.google.gson.stream.JsonReader;
 import com.scotiabank.hojaga.FirebaseUtility;
 import com.scotiabank.hojaga.R;
 import com.scotiabank.hojaga.student.adapters.ModulesAdapter;
+import com.scotiabank.hojaga.student.models.Keywords;
 import com.scotiabank.hojaga.student.models.ModulesInfo;
 
+import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -38,7 +41,7 @@ public class StudentModulesActivity extends AppCompatActivity implements Adapter
 
     private ModulesAdapter modulesAdapter;
     private ArrayList<ModulesInfo> modulesList = new ArrayList<>();
-    ModulesInfo[] founderArray;
+    ModulesInfo[] modulesArray;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,13 +54,15 @@ public class StudentModulesActivity extends AppCompatActivity implements Adapter
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        ModulesInfo module = modulesArray[position];
+        Keywords[] keywords = module.getKeywords();
         startActivity(new Intent(StudentModulesActivity.this, StudentKeywordsActivity.class));
     }
 
     private void setModules() {
 
-        Log.d("TAG","modules; "+founderArray.length);
-        for(ModulesInfo modulesInfo1 : founderArray){
+        Log.d("TAG","modules; "+modulesArray.length);
+        for(ModulesInfo modulesInfo1 : modulesArray){
             modulesList.add(modulesInfo1);
         }
         modulesAdapter = new ModulesAdapter(modulesList, this);
@@ -77,12 +82,10 @@ public class StudentModulesActivity extends AppCompatActivity implements Adapter
             public void onDataChange(DataSnapshot dataSnapshot) {
                 Object resultObject =  dataSnapshot.getValue();
                 String stringObject = resultObject.toString();
+                JsonReader jr = new JsonReader(new StringReader(stringObject.trim()));
+                jr.setLenient(true);
                 Gson gson = new Gson();
-                founderArray = gson.fromJson(stringObject, ModulesInfo[].class);
-
-                for (ModulesInfo module: founderArray) {
-                    Log.d("modules", "Module is: " + module.getTitle());
-                }
+                modulesArray = gson.fromJson(stringObject, ModulesInfo[].class);
                 setModules();
             }
 
