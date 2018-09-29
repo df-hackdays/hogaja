@@ -45,6 +45,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/txt_smiley_text"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
         android:layout_marginTop="40dp"
         app:isb_progress="0"
         app:isb_track_background_color="@color/keyword_blue"
