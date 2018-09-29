@@ -32,6 +32,6 @@
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_alignParentRight="true"
-        android:src="@color/common_google_signin_btn_text_dark_default"/>
+        android:src="@drawable/android"/>
 
 </RelativeLayout>

@@ -117,7 +117,7 @@ public class StudentKeywordsActivity extends AppCompatActivity implements Adapte
     void showDefinition(int position){
         final Dialog dialog = new Dialog(this);
         dialog.setContentView(R.layout.layout_definition);
-
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         // set the custom dialog components - text, image and button
         TextView text = (TextView) dialog.findViewById(R.id.txt_title);
         text.setText(keywordsArrayList.get(position).getName());
